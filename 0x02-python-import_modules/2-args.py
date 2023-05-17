@@ -3,12 +3,15 @@
 if __name__ == "__main__":
     import sys
 
-    count = len(sys.argv) - 1
-    if count == 0:
+    args = sys.argv
+
+    if len(args) == 1:
         print("0 arguments.")
-    elif count == 1:
+    elif len(args) == 2:
         print("1 argument:")
-    else:
-        print(f"{count} arguments:")
-    for i in range(count):
-        print(f"{i + 1}: {sys.argv[i + 1]}")
+    elif len(args) > 2:
+        print(f"{len(args) - 1} arguments:")
+
+    if len(args) > 1:
+        for i, arg in enumerate(sys.argv[1:], 1):
+            print(f"{i}: {arg}")

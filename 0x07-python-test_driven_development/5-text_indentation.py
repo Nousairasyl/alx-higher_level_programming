@@ -1,19 +1,33 @@
 #!/usr/bin/python3
-"""Text indentations"""
+"""This module contains a function that splits text by specified delimiters."""
 
 
 def text_indentation(text):
-    """Prints a text with 2 new lines
-    Args:
-        text (string): The text to print.
-    Raises:
-        TypeError: If text is not a string.
+    """Prints text separated by deliiters, line by line.
 
+    Args:
+        text (str): Text to print.
+
+    Raises:
+        TypeError: If text given is not a string.
     """
-    special = ['.', '?', ':']
-    if type(text) != str:
-        raise TypeError("text must be string")
-    for x in text:
-        print(x, end='')
-        if x in special:
-            print('\n\n', end='')
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    if not text:
+        return
+
+    chars = ""
+    splited = []
+    for char in text:
+        chars += char
+        if char in ".?:":
+            splited.append(chars.strip())
+            chars = ""
+
+    if chars:
+        splited.append("".join(chars).strip())
+
+    for line in splited[:-1]:
+        print(line)
+        print("")
+    print(splited[-1], end="")

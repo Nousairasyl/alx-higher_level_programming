@@ -1,48 +1,52 @@
 ========================
-doctest for 1-my_list.py
+My List
 ========================
 
->>> MyList = __import__('1-my_list').MyList
 
-TEST CONDITIONS
-===============
+Import module
+========================
+    >>> MyList = __import__('1-my_list').MyList
 
-testing list
-::
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
->>> print(my_list)
-[1, 4, 2, 3, 5]
 
-testing empty list
-::
->>> my_list = MyList()
->>> print(my_list)
-[]
->>> my_list.print_sorted()
-[]
->>> print(my_list)
-[]
+Tests
+========================
 
-testing list with negative ints
-::
->>> my_list = MyList()
->>> my_list.append(-1)
->>> my_list.append(4)
->>> my_list.append(-2)
->>> my_list.append(3)
->>> my_list.append(-5)
->>> print(my_list)
-[-1, 4, -2, 3, -5]
->>> my_list.print_sorted()
-[-5, -2, -1, 3, 4]
->>> print(my_list)
-[-1, 4, -2, 3, -5]
+* Create new instance
+
+    >>> my_list = MyList()
+
+* Print empty list
+
+    >>> print(my_list)
+    []
+
+    >>> my_list.print_sorted()
+    []
+
+* Append some arguments
+
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+
+* Print list instance directly.
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+* Call the `print_sorted()` method
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+* Append some negative numbers
+
+    >>> my_list.append(-3)
+    >>> my_list.append(-7)
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5, -3, -7]
+
+    >>> my_list.print_sorted()
+    [-7, -3, 1, 2, 3, 4, 5]
